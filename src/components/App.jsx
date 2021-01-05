@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import NavBar from "./NavBar"
+import Card from "./Card"
+import DataFetching from "../components/DataFetching"
 
 function App() {
+
     return (
-        <h1>Hello Earl</h1>
+        <div>
+            <NavBar />
+            <DataFetching />
+        </div>
+
     )
 }
 
