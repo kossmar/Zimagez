@@ -1,36 +1,26 @@
 import React, { useState, useEffect } from "react"
 import Card from "./Card"
+import { fetchData } from "../workers/APIWorker"
 
 
-function DataFetching() {
+function Album() {
 
     console.log("FUCK")
 
     const [posts, setPosts] = useState([])
 
-    const url = "https://api.imgur.com/3/gallery/hot"
 
     useEffect(() => {
-        async function fetchData() {
-            var myHeaders = new Headers();
-            myHeaders.append("Authorization", "Client-ID 887969259c856a0");
 
-            var requestOptions = {
-                method: 'GET',
-                headers: myHeaders,
-                redirect: 'follow'
-            };
-
-            const response = await fetch(url, requestOptions);
-            const body = await response.json()
-            const posts = body.data
-            // console.log(posts[0].images[0].link)
-            console.log(posts)
-            // const { id } = posts[0]
-            // console.log(id)
-            setPosts(posts)
+        const getPosts = async () => {
+            const posts = await fetchData()
+            setPosts(() => {
+                console.log(posts)
+                return posts
+            })
         }
-        fetchData();
+        getPosts()
+
     }, [])
 
     return (
@@ -54,4 +44,4 @@ function DataFetching() {
     )
 }
 
-export default DataFetching
+export default Album

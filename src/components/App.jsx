@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react"
 import NavBar from "./NavBar"
-import Card from "./Card"
-import DataFetching from "../components/DataFetching"
+import Album from "./Album"
 
 function App() {
 
     return (
         <div>
             <NavBar />
-            <DataFetching />
+            <Album />
         </div>
 
     )
