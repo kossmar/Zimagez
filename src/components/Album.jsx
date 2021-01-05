@@ -27,15 +27,15 @@ function Album() {
 
         <div>
             <div className="container-fluid py-3">
-                <div className="row">
+                <div className="card-columns">
                     {(posts && posts.length > 0) && posts.map(post => (
                         (post.images ? (post.images[0].animated ?
-                            <Card key={post.id} source={"/iu.jpeg"} />
+                            <Card key={post.id} source={"/iu.jpeg"} title={post.title} height={post.cover_height}/>
                             :
-                            <Card key={post.id} source={post.images[0].link} />
+                            <Card key={post.id} source={post.images[0].link} title={post.title} height={post.cover_height}/>
                         )
                             :
-                            <Card key={post.id} source={"/iu.jpeg"} />
+                            <Card key={post.id} source={"/iu.jpeg"} title={post.title} height={post.cover_height}/>
                         )
                     ))}
                 </div>
